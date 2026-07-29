@@ -1,0 +1,9 @@
+# Archivos del sistema y editores
+.DS_Store
+.idea/
+.vscode/
+*.log
+
+# Documentos de instrucciones y guías generados
+*instrucciones*
+*GUIA-DESPLIEGUE*

@@ -10,8 +10,19 @@ export default function Navbar() {
   const [mostrarDropdown, setMostrarDropdown] = useState(false)
 
   useEffect(() => {
-    cliente.get('/notificaciones').then((res) => setNotificaciones(res.data.data || res.data))
-  }, [])
+    const cargarNotificaciones = () => {
+      cliente.get('/notificaciones').then((res) => setNotificaciones(res.data.data || res.data))
+    }
+
+    cargarNotificaciones()
+    const intervalo = setInterval(cargarNotificaciones, 15000)
+    window.addEventListener('notificaciones-actualizadas', cargarNotificaciones)
+
+    return () => {
+      clearInterval(intervalo)
+      window.removeEventListener('notificaciones-actualizadas', cargarNotificaciones)
+    }
+    }, [])
 
   const iniciales = usuario?.name
     ?.split(' ')

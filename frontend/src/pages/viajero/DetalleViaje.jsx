@@ -46,6 +46,7 @@ export default function DetalleViaje() {
   const alConfirmarPago = () => {
     setMostrarPago(false)
     cargarViaje()
+    window.dispatchEvent(new Event('notificaciones-actualizadas')) // NUEVO
   }
 
   const enviarResena = async (e) => {
@@ -75,6 +76,7 @@ export default function DetalleViaje() {
     try {
       await cliente.patch(`/viajes/${id}/completar`)
       cargarViaje()
+      window.dispatchEvent(new Event('notificaciones-actualizadas')) // NUEVO
     } finally {
       setCompletando(false)
     }

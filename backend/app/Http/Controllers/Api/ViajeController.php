@@ -103,6 +103,22 @@ class ViajeController extends Controller
         ]);
     }
 
+    private function calcularTotalItinerario(Viaje $viaje): float
+    {
+        $total = 0;
+
+        foreach ($viaje->itinerario as $actividad) {
+            preg_match_all('/\d[\d,]*/', $actividad->costo_estimado ?? '', $coincidencias);
+            $numeros = array_map(fn ($n) => (float) str_replace(',', '', $n), $coincidencias[0]);
+
+            if (count($numeros) > 0) {
+                $total += array_sum($numeros) / count($numeros);
+            }
+        }
+
+        return $total;
+    }
+
     public function confirmar(Request $request, Viaje $viaje)
     {
         Gate::authorize('actualizar', $viaje);
@@ -124,11 +140,12 @@ class ViajeController extends Controller
         $viaje->update(['estado' => 'confirmado']);
 
         $usuario = $request->user();
+        $totalItinerario = $this->calcularTotalItinerario($viaje->load('itinerario'));
 
         Notificacion::create([
             'user_id' => $usuario->id,
             'canal' => 'pago',
-            'mensaje' => "Pago confirmado para tu viaje a {$viaje->destino->nombre} (\${$viaje->presupuesto} MXN).",
+            'mensaje' => "Pago confirmado para tu viaje a {$viaje->destino->nombre} (\$" . number_format($totalItinerario, 0, '.', ',') . " MXN).",
         ]);
 
         $usuario->notify(new ViajeConfirmadoNotification($viaje));
@@ -172,6 +189,12 @@ class ViajeController extends Controller
         }
 
         $viaje->update(['estado' => 'completado']);
+
+        Notificacion::create([
+            'user_id' => $request->user()->id,
+            'canal' => 'pago',
+            'mensaje' => "Marcaste tu viaje a {$viaje->destino->nombre} como completado. ¡Esperamos que la hayas pasado increíble!",
+        ]);
 
         return new ViajeResource($viaje->load(['destino', 'itinerario']));
     }
