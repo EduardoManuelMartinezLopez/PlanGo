@@ -1,0 +1,22 @@
+meta {
+  name: Caso de error - credenciales inválidas
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{base_url}}/api/login
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "email": "developer@plango.test",
+    "password": "contraseña-incorrecta"
+  }
+}
+
+assert {
+  res.status: eq 422
+}
