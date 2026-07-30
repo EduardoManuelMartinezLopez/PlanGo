@@ -94,8 +94,50 @@ erDiagram
 - **Administrador** — acceso total, gestión de usuarios y estadísticas
 
 ## Instalación local
+ 
+### Backend (Laravel)
+ 
+1. Entra a la carpeta `backend` e instala las dependencias:
+```bash
+   composer install
+```
+2. Copia `.env.example` a `.env` y configura tu base de datos MySQL:
+```
+   DB_DATABASE=plango_db
+   DB_USERNAME=root
+   DB_PASSWORD=tu_contraseña
+```
+3. Genera la clave de la aplicación y corre migraciones + seeders:
+```bash
+   php artisan key:generate
+   php artisan migrate:fresh --seed
+```
+4. Levanta el servidor:
+```bash
+   php artisan serve
+```
+   Prueba abriendo `http://127.0.0.1:8000/api/destinos` — si ves un JSON
+   con destinos de viaje, el backend está funcionando.
 
-Ver `backend/INSTRUCCIONES-BACKEND.md` y `frontend/INSTRUCCIONES-FRONTEND.md`.
+### Frontend (React + Vite)
+ 
+1. Entra a la carpeta `frontend` e instala las dependencias:
+```bash
+   npm install
+```
+2. Confirma en tu `.env` que apunte al backend local:
+```
+   VITE_API_URL=http://127.0.0.1:8000/api
+```
+3. Levanta el proyecto:
+```bash
+   npm run dev
+```
+4. Abre la URL que te dé (normalmente `http://localhost:5173`) e inicia
+   sesión con el usuario developer (`developer@plango.test` /
+   `Developer#2026`) para confirmar que el frontend y el backend estén
+   hablando entre sí correctamente.
+
 
 ## Credenciales de prueba
 
