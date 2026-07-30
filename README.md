@@ -108,13 +108,12 @@ Ver `backend/INSTRUCCIONES-BACKEND.md` y `frontend/INSTRUCCIONES-FRONTEND.md`.
 ## URLs
 
 - Proyecto desplegado: https://plango.duckdns.org/ 
-- URL base de la API: _(pegar aquí, ej. https://tudominio.com/api)_
+- URL base de la API: https://plango.duckdns.org/api
 
 ## Enlaces del proyecto
 
-- Tablero de GitHub Projects: _(pegar aquí)_
-- Prototipo de Figma: https://www.figma.com/design/1DDqPMfTnYtLCJvv2ltPrh/7.--Act7.-Mockup-en-Figma-del-Sistema?node-id=0-1&t=QuANunCsSzLvNDXd-0
-
+- Tablero de GitHub Projects: https://github.com/users/EduardoManuelMartinezLopez/projects/1
+- Prototipo de Figma: https://www.figma.com/proto/1DDqPMfTnYtLCJvv2ltPrh/7.--Act7.-Mockup-en-Figma-del-Sistema?node-id=112-112&p=f&t=d9J7VX7PEfuO7YPu-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=112%3A376&show-proto-sidebar=1
 ## Pruebas con Bruno
 
 La colección está en la carpeta `/bruno` en la raíz de este repositorio.
