@@ -1,0 +1,15 @@
+/vendor
+/node_modules
+.env
+.env.backup
+.env.production
+/storage/*.key
+/public/build
+/public/hot
+/public/storage
+.phpunit.result.cache
+/.fleet
+/.idea
+/.vscode
+!bootstrap/cache/.gitkeep
+storage/logs/*.log
