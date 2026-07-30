@@ -107,13 +107,13 @@ Ver `backend/INSTRUCCIONES-BACKEND.md` y `frontend/INSTRUCCIONES-FRONTEND.md`.
 
 ## URLs
 
-- Proyecto desplegado: _(pegar aquí el link con HTTPS una vez desplegado)_
+- Proyecto desplegado:https://plango.duckdns.org 
 - URL base de la API: _(pegar aquí, ej. https://tudominio.com/api)_
 
 ## Enlaces del proyecto
 
 - Tablero de GitHub Projects: _(pegar aquí)_
-- Prototipo de Figma: _(pegar aquí)_
+- Prototipo de Figma: https://www.figma.com/design/1DDqPMfTnYtLCJvv2ltPrh/7.--Act7.-Mockup-en-Figma-del-Sistema?node-id=0-1&t=QuANunCsSzLvNDXd-0
 
 ## Pruebas con Bruno
 
