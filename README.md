@@ -107,7 +107,7 @@ Ver `backend/INSTRUCCIONES-BACKEND.md` y `frontend/INSTRUCCIONES-FRONTEND.md`.
 
 ## URLs
 
-- Proyecto desplegado:https://plango.duckdns.org 
+- Proyecto desplegado: https://plango.duckdns.org/ 
 - URL base de la API: _(pegar aquí, ej. https://tudominio.com/api)_
 
 ## Enlaces del proyecto
